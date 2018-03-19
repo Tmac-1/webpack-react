@@ -1,0 +1,10 @@
+   "entry": "node config/entry/entryBuild.js", 
+    生成公共的js文件 （index.js shop.js）
+    "devBuildHtml":"node config/webpack/webpack.devBuildHtml.conf.js"
+    生成html模板 （index.html shop.html）
+
+    html-webpack-plugin:生成html文件
+    optimize-css-assets-webpack-plugin:压缩css
+    extract-text-webpack-plugin:样式文件单独打包
+    url-loader:主要用来处理图片
+    file：处理文件
