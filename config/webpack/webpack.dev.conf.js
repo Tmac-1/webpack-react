@@ -96,7 +96,7 @@ let config = merge(baseWebpackConfig,{
     // 设置api转发
     devServer:{
         host:"0.0.0.0",
-        port:8081,
+        port:8080,
         hot:true,
         inline:true,
         contentBase:path.resolve(webpackFile.devDirectory),
@@ -114,7 +114,7 @@ let config = merge(baseWebpackConfig,{
             opn('http://localhost:'+this.port)
         }
     },
-   
+
   
 })
 

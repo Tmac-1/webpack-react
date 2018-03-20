@@ -1,4 +1,5 @@
 import React from 'react';
+import SecondsTop from './SecondsTop';
 import SecondsBottom from './SecondsBottom';
 
 class Seconds extends React.Component {
@@ -23,22 +24,11 @@ class Seconds extends React.Component {
 
     render() {
         let state = this.state;
-        console.log(state)
+        // console.log(state)
+        // console.log(this.props)
         return (
             <div className="cont">
-                <div className="top">
-                    <i className="bd_logo1"/>
-                    这是{this.props.title}
-                </div>
-                {/* <div className="bottom">
-                    Seconds: {this.state.seconds}
-                </div>
-                <div className="bottom">
-                    Seconds: {this.state.seconds}
-                </div>
-                <div className="bottom">
-                    Seconds: {this.state.seconds}
-                </div> */}
+               <SecondsTop  {...this.props}/>
                 {/* 三种传值得方法 */}
                <SecondsBottom seconds={this.state.seconds}/>
                <SecondsBottom seconds={state.seconds}/>
