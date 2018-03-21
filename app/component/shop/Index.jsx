@@ -22,7 +22,7 @@ class Index extends React.Component{
     handleItemDel(id){
         console.log(id)
         let list = this.state.list;
-        list.splice(list.findIndex(data =>data.id ==id),1)
+        list.splice(list.findIndex(data =>data.id === id),1)
         this.setState({list:list})
     }
     render(){
