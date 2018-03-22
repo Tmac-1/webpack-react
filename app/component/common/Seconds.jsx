@@ -5,7 +5,7 @@ import SecondsBottom from './SecondsBottom';
 class Seconds extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {seconds: 0};
+        this.state = {seconds: 0,one:1,};
     }
 
     tick() {
@@ -13,6 +13,8 @@ class Seconds extends React.Component {
             seconds: prevState.seconds + 1
         }));
     }
+    
+
 
     componentDidMount() {
         this.interval = setInterval(() => this.tick(), 1000);
@@ -30,9 +32,10 @@ class Seconds extends React.Component {
             <div className="cont">
                <SecondsTop  {...this.props}/>
                 {/* 三种传值得方法 */}
-               <SecondsBottom seconds={this.state.seconds}/>
+               <SecondsBottom seconds={this.state.seconds} />
                <SecondsBottom seconds={state.seconds}/>
                <SecondsBottom {...state}/>
+              
             </div>
         );
     }

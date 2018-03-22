@@ -13,11 +13,18 @@ let entry = [
         description:'这是我们的商城'
     },
     {
-        name:'demo',
-        path:'demo/Index.jsx',
-        title:'案例',
-        keywords:'案例.xxx',
-        description:"这是我们的案例"
+        name:'demo1',
+        path:'demo/demo1/Index.jsx',
+        title:'案例1',
+        keywords:'案例1.xxx',
+        description:"这是我们的案例1"
+    },
+    {
+        name:'demo2',
+        path:'demo/demo2/Index.jsx',
+        title:'案例2',
+        keywords:'案例2.xxx',
+        description:"这是我们的案例2"
     }
 ]
 

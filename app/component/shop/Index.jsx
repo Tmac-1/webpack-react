@@ -1,3 +1,9 @@
+/*
+ * @Author: Tmac-1 
+ * @Date: 2018-03-22 22:00:11 
+ * @Last Modified by:   Tmac-1 
+ * @Last Modified time: 2018-03-22 22:00:11 
+ */
 import React from 'react';
 import "../../public/css/shop.pcss";
 
