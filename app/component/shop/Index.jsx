@@ -1,11 +1,14 @@
 /*
  * @Author: Tmac-1 
  * @Date: 2018-03-22 22:00:11 
- * @Last Modified by:   Tmac-1 
- * @Last Modified time: 2018-03-22 22:00:11 
+ * @Last Modified by: Tmac-1
+ * @Last Modified time: 2018-03-25 01:06:36
  */
 import React from 'react';
+import utils from '../../public/js/utils';
+import apiRequest from '../../public/js/apiRequest';
 import "../../public/css/shop.pcss";
+// import apiManager from '../../public/js/apiManager';
 
 class Index extends React.Component{
     constructor(props){
@@ -31,10 +34,19 @@ class Index extends React.Component{
         list.splice(list.findIndex(data =>data.id === id),1)
         this.setState({list:list})
     }
+    componentDidMount(){
+        apiRequest.post('newList1', {
+            start: 0,
+            end: 20
+        }, data => console.log(data), data => console.log(data))
+    }
     render(){
         let {list} = this.state;
         return(
             <div className='content'>
+                 <div>获取url中参数name的值：{utils.urlParam('name')}</div>
+                 <div>15910678888：这{utils.isMobile('15910678888') ? '是':'不是'}手机号</div>
+                 <div>11111111111：这{utils.isMobile('11111111111') ? '是':'不是'}手机号</div>
                   {
                      list.map(data=>
                              <li key={data.id}>{data.title} <button onClick = {this.handleItemDel.bind(this,data.id)}>删除</button></li>

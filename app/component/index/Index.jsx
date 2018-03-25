@@ -1,46 +1,27 @@
 import React from 'react';
 import '../../public/css/index.pcss';
 import Seconds from "../common/Seconds";
+import {HashRouter,Route,NavLink} from 'react-router-dom';
 
-const Index = () => <Seconds title="首页"/>
+import Shop from '../shop/Index';
+import demo1 from '../demo/demo1/Index';
+import demo2 from '../demo/demo2/Index';
 
-// class Index extends React.Component {
-//     constructor(props){
-//         super(props);
-//         this.state = { seconds : 0 }
-//     }
-
-//     tick(){
-//         this.setState( prevState =>({
-//             seconds:prevState.seconds + 1
-//         }))
-//     }
-
-//     componentDidMount(){
-//         this.interval = setInterval( ()=>{
-//             this.tick()
-//         },1000)
-//     }
-
-//     componentWillUnmount(){
-//         clearInterval(this.interval)
-//     }
-
-//     render(){
-//         return(
-//             <div className="cont">
-//                <div className="top">
-//                    <i className="bd_logo1"></i>
-//                    这是首页1,哈哈
-//                </div>
-//                 <div className="bottom">
-//                       seconds：{this.state.seconds}
-//                 </div>
-              
-//             </div>
-//         )
-//     }
-// }
+const Index = () =>
+  <HashRouter>
+      <div>
+          <div className='nav'>
+              <NavLink to='/' activeClassName='selected' exact>首页</NavLink>
+              <NavLink to='/Shop'activeClassName='selected' exact>商城</NavLink>  
+              <NavLink to='/demo1' activeClassName='selected' exact>demo1</NavLink> 
+              <NavLink to='/demo2' activeClassName='selected' exact>demo2</NavLink>
+          </div>
+          <Route exact path='/' component={()=><Seconds title='首页'/>} />
+          <Route path='/Shop' component={Shop}/>
+          <Route path='/demo1' component={demo1}/>
+          <Route path='/demo2' component={demo2} />
+      </div>
+  </HashRouter>
 
 export default Index;
 
