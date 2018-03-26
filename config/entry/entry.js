@@ -2,6 +2,7 @@ let entry = [
     {
         name:'index',
         path:'index/Index.jsx',
+        title:'首页',
         keywords:'首页，xxx',
         description:'这是我们的首页'
     },
@@ -13,18 +14,11 @@ let entry = [
         description:'这是我们的商城'
     },
     {
-        name:'demo1',
-        path:'demo/demo1/Index.jsx',
-        title:'案例1',
-        keywords:'案例1.xxx',
-        description:"这是我们的案例1"
-    },
-    {
-        name:'demo2',
-        path:'demo/demo2/Index.jsx',
-        title:'案例2',
-        keywords:'案例2.xxx',
-        description:"这是我们的案例2"
+        name:'demo',
+        path:'demo/Index.jsx',
+        title:'演示',
+        keywords:'演示.xxx',
+        description:"这是我们的演示"
     }
 ]
 
