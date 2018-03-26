@@ -14,7 +14,7 @@ const Index = () =>
               <NavLink to='/' activeClassName='selected' exact>首页</NavLink>
               <NavLink to='/Shop'activeClassName='selected' exact>商城</NavLink>  
               <NavLink to='/demo1' activeClassName='selected' exact>demo1</NavLink> 
-              <NavLink to='/demo2' activeClassName='selected' exact>demo2</NavLink>
+              <NavLink to='/demo2' activeClassName='selected' >demo2</NavLink>
           </div>
           <Route exact path='/' component={()=><Seconds title='首页'/>} />
           <Route path='/Shop' component={Shop}/>

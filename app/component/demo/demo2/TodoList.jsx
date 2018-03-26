@@ -2,10 +2,11 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-22 21:58:11 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-26 00:23:01
+ * @Last Modified time: 2018-03-26 15:56:25
  */
 import React from 'react';
 import List from './List';
+import utils from '../../../public/js/utils';
 // import apiRequest from '../../../public/js/apiRequest';
 import 'babel-polyfill';
 import apiRequestAsync from '../../../public/js/apiRequestAsync';
@@ -71,6 +72,8 @@ class TodoList extends React.Component{
     
     render(){
         let {list} = this.state;
+        let {location} = this.props;
+        console.log(location)
         return (
             <div className='todoList'>
                 <input type="text" ref='todoInput'/>
@@ -89,7 +92,17 @@ class TodoList extends React.Component{
                             <List list={list} handleItemEdit={this.handleItemEdit} type={2}/>
                       </div>
                 </div>
-                
+               {
+                   location?
+                   <div>
+                       <div>hash:{location.hash}</div>
+                       <div>pathname:{location.pathname}</div>
+                       <div>search:{utils.urlParam('sort',location.search)}</div>
+                       <div>state:{location.state && location.state.fromDashboard}</div>
+                   </div>
+                   :
+                   null
+               } 
             </div>
         )
     }
