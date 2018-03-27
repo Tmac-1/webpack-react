@@ -46,6 +46,16 @@ let config = merge(baseWebpackConfig,{
     module:{
         rules:[
             {
+                test:/\.bundle\.jsx$/,
+                use:{
+                    loader:'bundle-loader',
+                    options:{
+                        lazy:true,
+                        name:'[name]'
+                    }
+                }
+            },
+            {
                 test:/\.(js|jsx)$/,
                 use:['cache-loader','babel-loader'],
                 include:[
@@ -96,7 +106,7 @@ let config = merge(baseWebpackConfig,{
     // 设置api转发
     devServer:{
         host:"0.0.0.0",
-        port:8083,
+        port:8082,
         hot:true,
         inline:true,
         contentBase:path.resolve(webpackFile.devDirectory),
