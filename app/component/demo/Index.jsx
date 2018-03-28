@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-26 23:15:40 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 18:16:13
+ * @Last Modified time: 2018-03-28 22:01:18
  */
 
  import React from 'react';
@@ -14,7 +14,7 @@
  import Dome3 from './demo3/Index';
  import Dome4 from './demo4/Index';
  import Dome5 from './demo5/Index';
- import Dome6 from './demo5/Index';
+ import Dome6 from './demo6/Index';
  import  '../../public/css/demo.pcss';
 
 

@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-25 23:26:01 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-25 23:27:49
+ * @Last Modified time: 2018-03-28 23:21:59
  */
 
 const xmlNative = (opt, type) => {
@@ -28,7 +28,7 @@ const xmlNative = (opt, type) => {
         xmlHttp.send(null);
     }
     if (type === 1) {
-        return new Promise((resolve, reject) => {
+        var abc= new Promise((resolve, reject) => {
             xmlHttp.onreadystatechange = () => {
                 if (xmlHttp.readyState === 4) {
                     if (xmlHttp.status === 200) {
@@ -44,12 +44,16 @@ const xmlNative = (opt, type) => {
                 }
             };
         })
+       console.log(abc)
+        return abc
     } else {
         xmlHttp.onreadystatechange = () => {
             if (xmlHttp.readyState === 4) {
                 if (xmlHttp.status === 200) {
                     opt.success(JSON.parse(xmlHttp.responseText), xmlHttp.status)
+                   
                 } else {
+                    
                     opt.error(JSON.parse(xmlHttp.responseText), xmlHttp.status)
                 }
             }
