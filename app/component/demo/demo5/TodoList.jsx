@@ -2,11 +2,12 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-22 21:58:11 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 10:10:25
+ * @Last Modified time: 2018-03-28 19:23:11
  */
 import React from 'react';
 // 使用 Refast 的 Component 替代 React 的 Component
-import {Component} from 'refast';
+import Refast,{Component} from 'refast';
+import {Toast} from '../../common/layer'
 // 引入logic.js
 import logic from './logic';
 import List from './List';
@@ -17,11 +18,12 @@ class TodoList extends Component{
          super(props,logic)      
     }
 
-    componentDidMount(){}
+    componentDidMount(){
+        this.dispatch('getTodoList')
+    }
     render(){
-        console.log(this)
         let {list} = this.state,{dispatch} = this;
-       
+        // console.log(dispatch)
         return (
             <div className='todoList'>
                 <input type="text" ref='todoInput'/>
@@ -40,6 +42,7 @@ class TodoList extends Component{
                           <List type={2} list={list} dispatch={dispatch}/>
                     </div>
                 </div>
+                <Toast ref={e => Refast.use('fn',{Toast:e})}/>
             </div>
         )
     }

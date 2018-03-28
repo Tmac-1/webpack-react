@@ -2,26 +2,41 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-22 21:58:11 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 10:10:25
+ * @Last Modified time: 2018-03-28 19:28:02
  */
 import React from 'react';
 // 使用 Refast 的 Component 替代 React 的 Component
-import {Component} from 'refast';
+import Refast,{Component} from 'refast';
+import {Toast} from '../../common/layer'
 // 引入logic.js
 import logic from './logic';
 import List from './List';
 import '../../../public/css/todoList.pcss'; 
+
+const logState = ctx => next => (...args) => {
+    console.log('######### PRINT STATE LOG #########');
+    console.log('ctx:', ctx.getState().list, new Date().getTime());
+    console.log('args:', args[0].list, new Date().getTime());
+    // 如果不执行 next， 则中止组件 state 更新
+    next(...args);
+};
+// logState 可以是一个函数
+// 也可以是一个函数组, 从前到后依次执行
+
+Refast.use('middleware', [logState]);
+
 
 class TodoList extends Component{
     constructor(props){
          super(props,logic)      
     }
 
-    componentDidMount(){}
+    componentDidMount(){
+        this.dispatch('getTodoList')
+    }
     render(){
-        console.log(this)
         let {list} = this.state,{dispatch} = this;
-       
+        console.log(dispatch)
         return (
             <div className='todoList'>
                 <input type="text" ref='todoInput'/>
@@ -40,6 +55,7 @@ class TodoList extends Component{
                           <List type={2} list={list} dispatch={dispatch}/>
                     </div>
                 </div>
+                <Toast ref={e => Refast.use('fn',{Toast:e})}/>
             </div>
         )
     }

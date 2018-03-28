@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-25 02:07:41 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-25 18:27:09
+ * @Last Modified time: 2018-03-28 17:59:12
  */
 import Mock from 'mockjs';
 
@@ -16,7 +16,7 @@ Mock.mock(/\/todoList.mock/,{
             "status":1
         }]
     },
-    "message":"操作成功",
+    "message":"操作失败····",
     "systemDate":new Date().getTime()
 })
 

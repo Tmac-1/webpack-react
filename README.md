@@ -11,4 +11,7 @@
 10.路由按需加载2<br/>
 <ul>
   <li>1.状态管理Refast（简单使用）</li>
+  <li>2.状态管理Refast（异步修改state）</li>
+  <li>3.状态管理Refast（扩展ctx）</li>
+  <li>4.状态管理Refast（中间件middleware）</li>
 </ul>

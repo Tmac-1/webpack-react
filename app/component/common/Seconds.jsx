@@ -26,6 +26,7 @@ class Seconds extends React.Component {
 
     render() {
         let state = this.state;
+        // console.log(this.props)
         return (
             <div className="cont">
                <SecondsTop  {...this.props}/>
