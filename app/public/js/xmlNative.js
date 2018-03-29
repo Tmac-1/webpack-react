@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-25 23:26:01 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 23:21:59
+ * @Last Modified time: 2018-03-29 10:08:09
  */
 
 const xmlNative = (opt, type) => {
@@ -44,7 +44,7 @@ const xmlNative = (opt, type) => {
                 }
             };
         })
-       console.log(abc)
+    //    console.log(abc)
         return abc
     } else {
         xmlHttp.onreadystatechange = () => {

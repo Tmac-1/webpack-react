@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-26 23:15:40 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 22:01:18
+ * @Last Modified time: 2018-03-29 15:24:24
  */
 
  import React from 'react';
@@ -15,6 +15,7 @@
  import Dome4 from './demo4/Index';
  import Dome5 from './demo5/Index';
  import Dome6 from './demo6/Index';
+ import Dome7 from './demo7/Index';
  import  '../../public/css/demo.pcss';
 
 
@@ -28,6 +29,7 @@
                          <NavLink to='/Dome4' activeClassName='selected' >demo4</NavLink>
                          <NavLink to='/Dome5' activeClassName='selected' >demo5</NavLink>
                          <NavLink to='/Dome6' activeClassName='selected' >demo6</NavLink>
+                         <NavLink to='/Dome7' activeClassName='selected' >demo7</NavLink>
                     </div>
                     <Route exact path='/' render={() => (<Redirect to='/Dome1'/>)} />
                     <Route path='/Dome1' component={
@@ -42,6 +44,7 @@
                     <Route path='/Dome4' component={Dome4}/>
                     <Route path='/Dome5' component={Dome5}/>
                     <Route path='/Dome6' component={Dome6}/>
+                    <Route path='/Dome7' component={Dome7}/>
              </div>
         </HashRouter>
 

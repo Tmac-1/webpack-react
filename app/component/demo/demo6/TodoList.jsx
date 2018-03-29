@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-22 21:58:11 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 22:57:44
+ * @Last Modified time: 2018-03-29 15:04:41
  */
 import React from 'react';
 // 使用 Refast 的 Component 替代 React 的 Component
@@ -12,26 +12,21 @@ import {Toast} from '../../common/layer'
 import logic from './logic';
 import List from './List';
 import '../../../public/css/todoList.pcss'; 
-// function next(){
 
-// }
-// function logState(ctx){
-//     return function (next){
-//             return function (...args) {
-//                     next(...args)
-//             }
-//     }
-// }
 
 const logState = ctx => next => (...args) => {
-
-
+    
     console.log('######### PRINT STATE LOG #########');
-    console.log('ctx:', ctx, new Date().getTime());
-    console.log('args:', args, new Date().getTime());
+    console.log('ctx:', ctx.getState().list, new Date().getTime());
+    console.log('args:', args[0].list, new Date().getTime());
     // 如果不执行 next， 则中止组件 state 更新
-    console.log(next)
-
+    // console.log(next)
+    console.log(args)
+    if( !args[0].back){
+       let refast_todoList_log = JSON.parse( localStorage.getItem('refast-todoList-log'))
+       refast_todoList_log.push(args[0].list)
+       localStorage['refast-todoList-log'] = JSON.stringify( refast_todoList_log )
+    }
     next(...args);
 };
 // logState 可以是一个函数
@@ -39,17 +34,18 @@ const logState = ctx => next => (...args) => {
 
 Refast.use('middleware', [logState]);
 
-
 class TodoList extends Component{
     constructor(props){
          super(props,logic)      
     }
 
     componentDidMount(){
+        localStorage.setItem('refast-todoList-log',JSON.stringify( [[]] ))
         this.dispatch('getTodoList')
     }
     render(){
-        let {list} = this.state,{dispatch} = this;
+        let {list,step} = this.state,{dispatch} = this;
+        let refast_todoList_log = JSON.parse(localStorage.getItem('refast-todoList-log'))
         // console.log(this)
         return (
             <div className='todoList'>
@@ -71,6 +67,28 @@ class TodoList extends Component{
                 </div>
              
                 <Toast ref={e => Refast.use('fn',{Toast:e})}/>
+
+                <div style={{width:'100%',float:'left',marginTop:30}}>
+                      一共{refast_todoList_log && refast_todoList_log.length}步，当前第{step}步
+                      <button onClick={()=>{
+                          if(step >=2){
+                              this.dispatch('back',refast_todoList_log[step -2],step-1)
+                          }else{
+                              alert('不能再后退了')
+                          }
+                      }}>
+                         后退
+                      </button>
+                       <button onClick={ ()=>{
+                           if( step < refast_todoList_log.length){
+                               this.dispatch('back',refast_todoList_log[step],step+1)
+                           }else{
+                               alert('不能再前进了')
+                           }
+                       }}>
+                         前进        
+                      </button>
+                </div>
             </div>
         )
     }

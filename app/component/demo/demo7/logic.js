@@ -7,15 +7,11 @@ export default{
     defaults(props){
         return{
             list:[],
-            step:1,
-            back:false
+            isLoading:true,
+            isEmpty:false
         }
     },
 
-    back({setState},data,step){
-       setState({back:true,list:data,step:step})
-    }, // 设置为ture，触发back的时候不会改变存储后的状态
-   
     handleAdd({getState,setState},title) {
         if(title){
             let list = getState().list;
@@ -45,12 +41,23 @@ export default{
         try {
             
             todoList =  await apiRequestAsync.post('todoList');
+            setTimeout(()=>{
+                // todoList.list = []  //测试空数据
+                if(todoList.list.length > 0){
+                    fn.Toast.show('操作成功')
+                    setState({
+                        isLoading:false,
+                        list:todoList.list  
+                    })
+                }else{
+                    fn.Toast.show('暂无数据');
+                    setState({
+                        isLoading:false,
+                        isEmpty:true
+                    })
+                }
+            },2000)
             
-            fn.Toast.show('操作成功')
-            setState({
-                list:todoList.list,
-                step:2
-            })
         }catch(error){
             fn.Toast.show(error)
         }

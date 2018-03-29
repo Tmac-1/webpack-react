@@ -7,7 +7,7 @@ class Seconds extends React.Component {
     constructor(props) {
         super(props);
         this.state = {seconds: 0,one:1,isShow:true};
-        console.log(123)
+        // console.log(123)
     }
      
     tick() {

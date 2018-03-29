@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set NODE_ENV=development && webpack-dev-server --devtool eval --progress --colors --profile --config config/webpack/webpack.dev.conf.js",
+    "dev": "set NODE_ENV=development && webpack-dev-server --devtool cheap-module-eval-source-map --inline --progress --colors --profile --config config/webpack/webpack.dev.conf.js",
     "devNew": "npm run entry && npm run devBuildHtml",
     "p": "SET BABEL_ENV=production && webpack --progress --colors --config config/webpack/webpack.prod.conf.js",
     "entry": "node config/entry/entryBuild.js",
@@ -21,12 +21,14 @@
     "react-cookie": "^0.4.6",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "refast": "^2.1.1"
+    "refast": "^2.1.1",
+    "refast-logic-render": "^2.2.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
