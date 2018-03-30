@@ -13,7 +13,6 @@ let config = merge(baseWebpackConfig,{
         chunkFilename:"js/[name]-[id].js",
         publicPath:''
     },
-    // devtool:'source-map',
     plugins:[
         new webpack.BannerPlugin('版权所有，翻版必究'),
         // 设置开发环境
@@ -25,7 +24,7 @@ let config = merge(baseWebpackConfig,{
         }),
         // 设置热更新
         new webpack.HotModuleReplacementPlugin(),
-        // common 业务公共代码，vendor引入第三方
+        // co公共代码，vendor引入第三方mmon 业务
         new webpack.optimize.CommonsChunkPlugin({
             name:["common","vendor"]
         }),
@@ -107,7 +106,7 @@ let config = merge(baseWebpackConfig,{
     // 设置api转发
     devServer:{
         host:"0.0.0.0",
-        port:8082,
+        port:8083,
         hot:true,
         inline:true,
         contentBase:path.resolve(webpackFile.devDirectory),
