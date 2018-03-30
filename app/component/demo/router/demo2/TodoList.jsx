@@ -2,15 +2,15 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-22 21:58:11 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-27 17:15:57
+ * @Last Modified time: 2018-03-30 18:16:26
  */
 import React from 'react';
 import List from './List';
-import utils from '../../../public/js/utils';
+import utils from '../../../../public/js/utils';
 // import apiRequest from '../../../public/js/apiRequest';
 import 'babel-polyfill';
-import apiRequestAsync from '../../../public/js/apiRequestAsync';
-import '../../../public/css/todoList.pcss'; 
+import apiRequestAsync from '../../../../public/js/apiRequestAsync';
+import '../../../../public/css/todoList.pcss'; 
 
 class TodoList extends React.Component{
     constructor(props){

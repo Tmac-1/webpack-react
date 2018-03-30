@@ -2,7 +2,7 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-22 21:58:11 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-28 19:23:11
+ * @Last Modified time: 2018-03-30 18:11:29
  */
 import React from 'react';
 // 使用 Refast 的 Component 替代 React 的 Component
@@ -21,6 +21,7 @@ class TodoList extends Component{
     componentDidMount(){
         this.dispatch('getTodoList')
     }
+
     render(){
         let {list} = this.state,{dispatch} = this;
         // console.log(dispatch)
