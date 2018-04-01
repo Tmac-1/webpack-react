@@ -16,13 +16,15 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "flux": "^3.1.3",
     "jquery": "^3.3.1",
     "react": "^16.2.0",
     "react-cookie": "^0.4.6",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "refast": "^2.1.1",
-    "refast-logic-render": "^2.2.3"
+    "refast-logic-render": "^2.2.3",
+    "reflux": "^6.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

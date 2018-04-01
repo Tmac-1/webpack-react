@@ -2,20 +2,16 @@
  * @Author: Tmac-1 
  * @Date: 2018-03-26 23:15:40 
  * @Last Modified by: Tmac-1
- * @Last Modified time: 2018-03-29 15:24:24
+ * @Last Modified time: 2018-04-01 23:22:04
  */
 
  import React from 'react';
- import {HashRouter,Route,NavLink,Redirect} from 'react-router-dom';
+ import {HashRouter,Route,NavLink} from 'react-router-dom';
 
- import {BundleFun} from '../common/Bundle';
- import Dome1 from './demo1/Demo1.bundle';
- import Dome2 from './demo2/Demo2.bundle';
- import Dome3 from './demo3/Index';
- import Dome4 from './demo4/Index';
- import Dome5 from './demo5/Index';
- import Dome6 from './demo6/Index';
- import Dome7 from './demo7/Index';
+ import Router from './router/Index';
+ import ReFast from './refast/Index';
+ import Flux from './flux/Index';
+ import ReFlux from './reflux/Index';
  import  '../../public/css/demo.pcss';
 
 
@@ -23,28 +19,17 @@
         <HashRouter>
              <div className='content'>
                     <div className='nav'>
-                         <NavLink to='/Dome1' activeClassName='selected' exact>demo1</NavLink>
-                         <NavLink to='/Dome2' activeClassName='selected' >demo2</NavLink>
-                         <NavLink to='/Dome3' activeClassName='selected' >demo3</NavLink>
-                         <NavLink to='/Dome4' activeClassName='selected' >demo4</NavLink>
-                         <NavLink to='/Dome5' activeClassName='selected' >demo5</NavLink>
-                         <NavLink to='/Dome6' activeClassName='selected' >demo6</NavLink>
-                         <NavLink to='/Dome7' activeClassName='selected' >demo7</NavLink>
+                         <NavLink to='/Router' activeClassName='selected' >router</NavLink>
+                         <NavLink to='/Refast' activeClassName='selected' >refast</NavLink>
+                         <NavLink to='/Flux'   activeClassName='selected'>Flux</NavLink>
+                         <NavLink to='/ReFlux'   activeClassName='selected'>ReFlux</NavLink>
                     </div>
-                    <Route exact path='/' render={() => (<Redirect to='/Dome1'/>)} />
-                    <Route path='/Dome1' component={
-                        ()=>BundleFun(Dome1)
-                        }/>
-                    <Route path='/Dome2' component={
-                        (props) =>
-                            BundleFun(Dome2,props)
-                        
-                    }/>
-                    <Route path='/Dome3' component={Dome3}/>
-                    <Route path='/Dome4' component={Dome4}/>
-                    <Route path='/Dome5' component={Dome5}/>
-                    <Route path='/Dome6' component={Dome6}/>
-                    <Route path='/Dome7' component={Dome7}/>
+                     <br/>
+                
+                    <Route path='/Router' component={Router}/>
+                    <Route path='/ReFast' component={ReFast}/>
+                    <Route path='/Flux'   component={Flux}  />
+                    <Route path='/ReFlux'   component={ReFlux}  />
              </div>
         </HashRouter>
 
