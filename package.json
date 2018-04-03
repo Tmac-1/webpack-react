@@ -21,7 +21,9 @@
     "react": "^16.2.0",
     "react-cookie": "^0.4.6",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
     "refast": "^2.1.1",
     "refast-logic-render": "^2.2.3",
     "reflux": "^6.4.1"
